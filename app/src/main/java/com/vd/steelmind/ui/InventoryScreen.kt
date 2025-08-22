@@ -12,6 +12,7 @@ import com.vd.steelmind.data.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun InventoryScreen(nav: NavController, db: AppDatabase) {
     val scope = rememberCoroutineScope()
@@ -47,7 +48,7 @@ fun InventoryScreen(nav: NavController, db: AppDatabase) {
             Text("Készlet:")
             LazyColumn {
                 items(stock) { s ->
-                    ListItem(headlineText = { Text("${s.lengthMm} mm × ${s.count}") })
+                    ListItem(headlineContent = { Text("${s.lengthMm} mm × ${s.count}") })
                     Divider()
                 }
             }
@@ -55,7 +56,7 @@ fun InventoryScreen(nav: NavController, db: AppDatabase) {
             Text("Maradékok:")
             LazyColumn {
                 items(offcuts) { o ->
-                    ListItem(headlineText = { Text("${o.lengthMm} mm × ${o.count}") })
+                    ListItem(headlineContent = { Text("${o.lengthMm} mm × ${o.count}") })
                     Divider()
                 }
             }
