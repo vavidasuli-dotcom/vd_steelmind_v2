@@ -1,0 +1,4 @@
+<resources>
+    <!-- XML parent only, Compose M3 megy a kódban -->
+    <style name="Theme.VDSteelMind" parent="Theme.MaterialComponents.DayNight.NoActionBar"/>
+</resources>
