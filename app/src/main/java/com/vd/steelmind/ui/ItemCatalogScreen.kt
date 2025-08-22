@@ -13,6 +13,7 @@ import com.vd.steelmind.data.ItemTypeEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ItemCatalogScreen(nav: NavController, db: AppDatabase) {
     val scope = rememberCoroutineScope()
@@ -41,8 +42,10 @@ fun ItemCatalogScreen(nav: NavController, db: AppDatabase) {
             Divider(Modifier.padding(vertical = 12.dp))
             LazyColumn {
                 items(items) { itype ->
-                    ListItem(headlineText = { Text("${itype.name} – ${itype.priceFtPerM} Ft/m") },
-                        supportingText = { Text(itype.materialType ?: "Anyag: -") })
+                    ListItem(
+                        headlineContent = { Text("${itype.name} – ${itype.priceFtPerM} Ft/m") },
+                        supportingContent = { Text(itype.materialType ?: "Anyag: -") }
+                    )
                     Divider()
                 }
             }
