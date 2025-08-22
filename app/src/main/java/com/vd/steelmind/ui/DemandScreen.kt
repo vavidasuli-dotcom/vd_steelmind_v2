@@ -79,7 +79,7 @@ fun DemandScreen(nav: NavController, db: AppDatabase, projectId: Long) {
             Divider(Modifier.padding(vertical = 12.dp))
             LazyColumn {
                 items(demands) { d ->
-                    ListItem(headlineText = { Text("${d.itemName}: ${d.length} mm × ${d.qty}") })
+                    ListItem(headlineContent = { Text("${d.itemName}: ${d.length} mm × ${d.qty}") })
                     Divider()
                 }
             }
